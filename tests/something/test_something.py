@@ -1,5 +1,5 @@
 
 
-def test_something(get_number):
+def test_something(calculate):
     assert 1 == 1
-    print(get_number)
+    # print(calculate(1,2))
