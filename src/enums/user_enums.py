@@ -6,8 +6,12 @@ class Genders(Enum):
     male = 'male'
 
 class Statuses(Enum):
-    inactive = "inactive"
-    active = "active"
+
+    ACTIVE = "ACTIVE"
+    BANNED = "BANNED"
+    DELETED = "DELETED"
+    INACTIVE = "INACTIVE"
+    MERGED = "MERGED"
 
 class UserErrors(Enum):
     WRONG_EMAIL = "Email doesn't contain @"
