@@ -21,6 +21,12 @@ def test_another():
     assert 1 == 1
 
 
+@pytest.mark.development
+@pytest.mark.production
+def test_another_failing_t():
+    assert 2 == 1
+
+
 @pytest.mark.production
 @pytest.mark.development
 @pytest.mark.parametrize('first_value, second_value, result', [
