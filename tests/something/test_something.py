@@ -38,7 +38,24 @@ def test_something_delete(delete_key, get_player_generator):
 
 
 def test_something_excange_localize(get_player_generator):
-    object_to_send = get_player_generator.update_inner_generator(
-        'localize', PlayerLocalization('fr_FR').set_number(15)
+    object_to_send = get_player_generator.update_inner_value(
+        'localize', PlayerLocalization('fr_FR').set_number(15).build()
+    ).build()
+    print(object_to_send)
+
+def test_something_excange_localize_deep_into(get_player_generator):
+    object_to_send = get_player_generator.update_inner_value(
+        ['localize', 'state', 'country'],
+        PlayerLocalization('fr_FR').set_number(15).build()
+    ).build()
+    print(object_to_send)
+
+@pytest.mark.parametrize('localizations, loc', [
+    'fr', 'fr_FR'
+])
+def test_something_excange_localizations(get_player_generator, localizations, loc):
+    object_to_send = get_player_generator.update_inner_value(
+        ['localize', localizations],
+        PlayerLocalization(loc).set_number(15).build()
     ).build()
     print(object_to_send)
