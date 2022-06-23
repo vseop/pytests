@@ -1,15 +1,13 @@
 from src.enums.user_enums import Statuses
 
+from src.generators.player_localization import PlayerLocalization
+
 
 class Player:
 
     def __init__(self):
-        self.result = {
-            'localize': {
-                'en': ....,
-                'ru': ....
-            }
-        }
+        self.result = {}
+        self.reset()
 
     def set_status(self, status=Statuses.ACTIVE.value):
         self.result['account_status'] = status
@@ -22,5 +20,22 @@ class Player:
     def set_avatar(self, avatar="https://google.com/"):
         self.result['avatar'] = avatar
 
+    def reset(self):
+        self.set_status()
+        self.set_avatar()
+        self.set_balance()
+        self.result["localize"] = {
+            "en": PlayerLocalization('en_US').build(),
+            "ru": PlayerLocalization('ru_RU').build()
+        }
+        return self
+
+    def update_inner_generator(self, key, generator):
+        self.result[key] = {'fr': generator.build()}
+        return self
+
     def build(self):
         return self.result
+
+
+

@@ -5,6 +5,10 @@ class Genders(Enum):
     female = 'female'
     male = 'male'
 
+class StatusesUser(Enum):
+    inactive = "inactive"
+    active = "active"
+
 class Statuses(Enum):
 
     ACTIVE = "ACTIVE"

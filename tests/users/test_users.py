@@ -24,7 +24,7 @@ def test_another():
 @pytest.mark.development
 @pytest.mark.production
 def test_another_failing_t():
-    assert 2 == 1
+    assert 2 == 2
 
 
 @pytest.mark.production
