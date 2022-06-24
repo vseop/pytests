@@ -1,12 +1,13 @@
 import pytest
 from src.generators.player_localization import PlayerLocalization
-
+from src.enums.user_enums import Statuses
 
 @pytest.mark.parametrize('status', [
-    "ACTIVE",
-    "BANNED",
-    "DELETED",
-    "INACTIVE"
+    # "ACTIVE",
+    # "BANNED",
+    # "DELETED",
+    # "INACTIVE"
+    *Statuses.list()
 
 ])
 def test_something(status, get_player_generator):
@@ -51,7 +52,7 @@ def test_something_excange_localize_deep_into(get_player_generator):
     print(object_to_send)
 
 @pytest.mark.parametrize('localizations, loc', [
-    'fr', 'fr_FR'
+    ('fr', 'fr_FR')
 ])
 def test_something_excange_localizations(get_player_generator, localizations, loc):
     object_to_send = get_player_generator.update_inner_value(

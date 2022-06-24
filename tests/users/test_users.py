@@ -5,6 +5,9 @@ from configurations import SERVICE_URL
 from src.baseclasses.response import Response
 from src.schemas.user import User
 
+from src.schemas.computer import Computer
+from examples import computer
+
 
 def test_getting_users_list(make_number, get_users, get_number, calculate):
     test_object = Response(get_users)
@@ -38,3 +41,8 @@ def test_another_failing_t():
 ])
 def test_calculation(first_value, second_value, result, calculate):
     assert calculate(first_value, second_value) == result
+
+
+def test_pydentic_object():
+    comp = Computer.parse_obj(computer)
+    print(comp.detailed_info.physical.color.as_rgb())
