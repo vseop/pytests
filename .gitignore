@@ -134,3 +134,4 @@ cython_debug/
 
 # My files
 allureress/
+/dbmy.sql
