@@ -1,21 +1,21 @@
 from sqlalchemy import desc
 
-from db import session
-
-import tables
-
-result = session.query(
-    tables.Films.film_id, tables.Films.title).filter(tables.Films.film_id == 180).one_or_none()
-
-film_ids = session.query(tables.Films.film_id).filter(tables.Films.film_id > 180).subquery()
-
-if result:
-    print(result)
-else:
-    print('Not good')
-
-result2 = session.query(tables.Films.title).filter(tables.Films.film_id.in_(film_ids)).order_by(
-    desc(tables.Films.film_id)).all()
+# from db import session
+#
+# import tables
+#
+# result = session.query(
+#     tables.Films.film_id, tables.Films.title).filter(tables.Films.film_id == 180).one_or_none()
+#
+# film_ids = session.query(tables.Films.film_id).filter(tables.Films.film_id > 180).subquery()
+#
+# if result:
+#     print(result)
+# else:
+#     print('Not good')
+#
+# result2 = session.query(tables.Films.title).filter(tables.Films.film_id.in_(film_ids)).order_by(
+#     desc(tables.Films.film_id)).all()
 
 player = {
     'account_status': 'ACTIVE',

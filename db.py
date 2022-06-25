@@ -18,4 +18,4 @@ Session = sessionmaker(
     autocommit=False
 )
 
-session = Session()
+# session = Session()
